@@ -26,7 +26,7 @@ A web-based trading terminal aiming at TradingView-class functionality on an ope
 ## 5. Tooling & services (master list)
 
 **Confirmed:**
-- Dev env: Ubuntu 24 VPS, VSCode Remote-SSH. Agent: Claude Code (Claude for judgment; DeepSeek v4 for mechanical tasks).
+- Dev env: Ubuntu 22.04 VPS, VSCode Remote-SSH. Agent: Claude Code (Claude for judgment; DeepSeek v4 for mechanical tasks).
 - Frontend: React + Vite + TypeScript + KLineChart, pnpm.
 - Backend: Python 3.12 + FastAPI + uvicorn, uv.
 - Orchestration: Docker + docker-compose. VCS/CI: Git + GitHub + GitHub Actions.
@@ -47,9 +47,9 @@ A web-based trading terminal aiming at TradingView-class functionality on an ope
 ### P0 — Foundation
 **Goal:** a repository with green CI and the agent loop working, *before* any feature code.
 - `[x] P0-S1` — GitHub repository created (public, empty). Tools: GitHub. **Done.**
-- `[~] P0-S2` — Project documentation established: `CLAUDE.md`, `ROADMAP.md`, `CHECKLIST.md`. *(Authored this session; committed during P0-S3.)*
-- `[ ] P0-S3` — Local repo init → connect remote → first commit & push (docs + `.gitignore` incl. `.env` + `.env.example` + `README.md`). Tools: git. *(SSH/GitHub already configured.)*
-- `[ ] P0-S4` — Base tooling on VPS: verify git; install Node (nvm) + pnpm, Python (uv), Docker Engine. Tools: nvm, pnpm, uv, Docker.
+- `[x] P0-S2` — Project documentation established: `CLAUDE.md`, `ROADMAP.md`, `CHECKLIST.md`. **Done.**
+- `[x] P0-S3` — Local repo init → connect remote → first commit & push (docs + `.gitignore` incl. `.env` + `.env.example` + `README.md`). Tools: git. **Done.**
+- `[x] P0-S4` — Base tooling on VPS. **Done** (uv installed; git, Node 24 LTS + pnpm, Docker, Claude Code already present).
 - `[ ] P0-S5` — **Secret-leak prevention:** enable GitHub push protection (Settings → Advanced Security → Secret Protection); install gitleaks as a pre-commit hook (via the pre-commit framework); confirm `.env` is ignored and `.env.example` is present. Tools: gitleaks, pre-commit, GitHub Secret Protection.
 - `[ ] P0-S6` — Monorepo structure: `frontend/`, `backend/`, `shared/`.
 - `[ ] P0-S7` — Backend skeleton: FastAPI + uv, `/health` endpoint + test. Tools: FastAPI, uv, pytest.
@@ -97,3 +97,4 @@ Not tied to one phase, but decide before the phase that needs them:
 Record every roadmap change here (date — what changed — why). Keeps the project's evolution traceable.
 - (init) — Roadmap created at P0 (only the empty GitHub repo existed).
 - (update) — Added **P0-S5 secret-leak prevention** and a gitleaks scan to the CI step; renumbered former P0-S5..S10 to S6..S11. Chosen local scanner: **gitleaks** (one tool for both pre-commit and CI). Strengthened the Secrets section in `CLAUDE.md` to a layered approach.
+- (update) — Marked P0-S2..S4 done. Corrected environment to **Ubuntu 22.04** (was 24). Confirmed Node 24 LTS, Docker and Claude Code already installed on the VPS.

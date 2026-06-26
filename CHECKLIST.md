@@ -6,16 +6,15 @@
 `[x]` done · `[~]` in progress · `[ ]` planned · ⚠️ blocked on a NEEDS-SPEC item (see `ROADMAP.md`)
 
 ## Current state
-- **GitHub repo:** created (empty, public).
-- **VPS:** nothing done yet — no tooling, no local repo, no push.
-- **Docs:** authored this session; to be committed during **P0-S3**.
-- **Next action:** **P0-S4** — local git init + first push of the docs.
+- **GitHub repo:** created; project docs pushed.
+- **VPS tooling:** ready — git, Python, Node 24 + pnpm, uv, Docker, Claude Code.
+- **Next action:** **P0-S5** — secret-leak prevention (GitHub push protection + gitleaks pre-commit hook).
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
 - [x] P0-S2 — Project docs authored (CLAUDE.md, ROADMAP.md, CHECKLIST.md)
 - [x] P0-S3 — Local repo init + remote + first commit & push (docs, .gitignore, .env.example, README)
-- [ ] P0-S4 — Base tooling on VPS (Node/nvm + pnpm, uv, Docker; verify git)
+- [x] P0-S4 — Base tooling on VPS (Node 24 + pnpm, uv; Docker & Claude Code already present)
 - [ ] P0-S5 — Secret-leak prevention (enable GitHub push protection; gitleaks pre-commit hook; .env.example)
 - [ ] P0-S6 — Monorepo structure (frontend/, backend/, shared/)
 - [ ] P0-S7 — Backend skeleton (FastAPI + /health + test)

@@ -24,7 +24,7 @@ All documentation, code comments, identifiers, commit messages, and instruction 
 - **Frontend:** React + Vite + TypeScript + KLineChart. Package manager: pnpm.
 - **Backend:** Python 3.12 + FastAPI + uvicorn. Env/package manager: uv.
 - **Orchestration:** Docker + docker-compose.
-- **Environment:** Ubuntu 24 VPS. Development via VSCode Remote-SSH on the server; production runs the same compose stack.
+- **Environment:** Ubuntu 22.04 VPS. Development via VSCode Remote-SSH on the server; production runs the same compose stack.
 - **Agent:** Claude Code. Model routing — Claude for judgment-heavy work (architecture, candle-engine port, tricky debugging, security); DeepSeek v4 for mechanical work (boilerplate, configs, repetitive code) where CI gates fully catch errors.
 
 ## Commands
