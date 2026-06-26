@@ -9,12 +9,12 @@
 - **GitHub repo:** created (empty, public).
 - **VPS:** nothing done yet — no tooling, no local repo, no push.
 - **Docs:** authored this session; to be committed during **P0-S3**.
-- **Next action:** **P0-S3** — local git init + first push of the docs.
+- **Next action:** **P0-S4** — local git init + first push of the docs.
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
-- [~] P0-S2 — Project docs authored (CLAUDE.md, ROADMAP.md, CHECKLIST.md)
-- [ ] P0-S3 — Local repo init + remote + first commit & push (docs, .gitignore, .env.example, README)
+- [x] P0-S2 — Project docs authored (CLAUDE.md, ROADMAP.md, CHECKLIST.md)
+- [x] P0-S3 — Local repo init + remote + first commit & push (docs, .gitignore, .env.example, README)
 - [ ] P0-S4 — Base tooling on VPS (Node/nvm + pnpm, uv, Docker; verify git)
 - [ ] P0-S5 — Secret-leak prevention (enable GitHub push protection; gitleaks pre-commit hook; .env.example)
 - [ ] P0-S6 — Monorepo structure (frontend/, backend/, shared/)
