@@ -8,7 +8,7 @@
 ## Current state
 - **GitHub repo:** created; project docs pushed.
 - **VPS tooling:** ready — git, Python, Node 24 + pnpm, uv, Docker, Claude Code.
-- **P0-S9** — docker-compose (local dev).
+- **Next action:** **P0-S9** — docker-compose (local dev).
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
