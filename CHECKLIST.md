@@ -8,7 +8,7 @@
 ## Current state
 - **GitHub repo:** created; project docs pushed.
 - **VPS tooling:** ready — git, Python, Node 24 + pnpm, uv, Docker, Claude Code.
-- **Next action:** **P0-S10** — CI gates (GitHub Actions: ruff/mypy/pytest + typecheck/test/build + gitleaks).
+- **Next action:** **P0-S11** — wire Claude Code, run one trial module through the agent → CI → review → merge loop.
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
@@ -20,7 +20,7 @@
 - [x] P0-S7 — Backend skeleton (FastAPI + /health + test)
 - [x] P0-S8 — Frontend skeleton (Vite + React + TS + klinecharts)
 - [x] P0-S9 — docker-compose (local dev)
-- [ ] P0-S10 — CI gates + gitleaks scan + branch protection on main
+- [x] P0-S10 — CI gates + gitleaks scan + branch protection on main
 - [ ] P0-S11 — Claude Code wired + one trial module through the loop
 
 ## P1 — Data layer & candle engine
