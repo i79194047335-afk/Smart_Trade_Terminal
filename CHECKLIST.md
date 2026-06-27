@@ -8,14 +8,14 @@
 ## Current state
 - **GitHub repo:** created; project docs pushed.
 - **VPS tooling:** ready — git, Python, Node 24 + pnpm, uv, Docker, Claude Code.
-- **Next action:** **P0-S5** — secret-leak prevention (GitHub push protection + gitleaks pre-commit hook).
+- **Next action:** **P0-S6** — monorepo structure (frontend/, backend/, shared/).
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
 - [x] P0-S2 — Project docs authored (CLAUDE.md, ROADMAP.md, CHECKLIST.md)
 - [x] P0-S3 — Local repo init + remote + first commit & push (docs, .gitignore, .env.example, README)
 - [x] P0-S4 — Base tooling on VPS (Node 24 + pnpm, uv; Docker & Claude Code already present)
-- [ ] P0-S5 — Secret-leak prevention (enable GitHub push protection; gitleaks pre-commit hook; .env.example)
+- [x] P0-S5 — Secret-leak prevention (enable GitHub push protection; gitleaks pre-commit hook; .env.example)
 - [ ] P0-S6 — Monorepo structure (frontend/, backend/, shared/)
 - [ ] P0-S7 — Backend skeleton (FastAPI + /health + test)
 - [ ] P0-S8 — Frontend skeleton (Vite + React + TS + klinecharts)
