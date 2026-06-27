@@ -75,6 +75,13 @@ Everything at once: `docker compose up --build`
 - Small, modular PRs — one task at a time. Decompose large tasks.
 - Consult this file before starting a task; if requirements conflict, ask the human.
 
+## Code comments policy (MANDATORY — maintainer is non-programmer)
+- Every non-trivial code block, function, and configuration file gets an explanatory comment in English.
+- Comments explain **what** the block does and **why**, not just paraphrase the code.
+- For files (Python modules, config files): a short header comment describing the file's purpose.
+- For functions: a docstring (Python) or JSDoc/TSDoc (TS) covering purpose, parameters, and return value.
+- Keep comments concise and accurate. Update them when the code changes — stale comments are worse than none.
+
 ## Repository layout
 ```
 frontend/        React + Vite + TS + KLineChart

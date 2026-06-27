@@ -52,7 +52,7 @@ A web-based trading terminal aiming at TradingView-class functionality on an ope
 - `[x] P0-S4` — Base tooling on VPS. **Done** (uv installed; git, Node 24 LTS + pnpm, Docker, Claude Code already present).
 - `[x] P0-S5` — **Secret-leak prevention:** enable GitHub push protection (Settings → Advanced Security → Secret Protection); install gitleaks as a pre-commit hook (via the pre-commit framework); confirm `.env` is ignored and `.env.example` is present. Tools: gitleaks, pre-commit, GitHub Secret Protection.
 - `[x] P0-S6` — Monorepo structure: `frontend/`, `backend/`, `shared/`.
-- `[ ] P0-S7` — Backend skeleton: FastAPI + uv, `/health` endpoint + test. Tools: FastAPI, uv, pytest.
+- `[x] P0-S7` — Backend skeleton: FastAPI + uv, `/health` endpoint + test. Tools: FastAPI, uv, pytest.
 - `[ ] P0-S8` — Frontend skeleton: Vite + React + TS; install `klinecharts`. Tools: pnpm, Vite.
 - `[ ] P0-S9` — Local orchestration: `docker-compose` (backend + frontend). Tools: Docker.
 - `[ ] P0-S10` — CI gates: GitHub Actions (ruff/mypy/pytest + typecheck/test/build + **gitleaks secret scan**); protect `main`. Tools: GitHub Actions, gitleaks.
