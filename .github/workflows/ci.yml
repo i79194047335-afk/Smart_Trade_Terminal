@@ -1,0 +1,103 @@
+# .github/workflows/ci.yml
+# Continuous Integration pipeline for Smart Trade Terminal.
+#
+# Runs automatically on every push to main and on every pull request.
+# Three independent jobs run in parallel:
+#   - backend  : Python checks (ruff, mypy, pytest)
+#   - frontend : TypeScript checks (typecheck, test, build)
+#   - secrets  : repository-wide gitleaks scan
+#
+# A pull request can only be merged when ALL jobs are green.
+# This is the deterministic "evaluator" gate the project relies on.
+
+name: ci
+
+# When the pipeline runs.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+
+  # ------------------------------------------------------------------
+  # Backend checks: linter, type checker, tests.
+  # ------------------------------------------------------------------
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      # Pull the repository contents into the runner.
+      - uses: actions/checkout@v4
+
+      # Install the `uv` Python package manager (same tool we use locally).
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      # Materialize the locked dependency set, including dev dependencies.
+      - name: Install dependencies
+        run: uv sync
+
+      # Gate 1: code style / lint.
+      - name: Ruff
+        run: uv run ruff check .
+
+      # Gate 2: static type checking.
+      - name: Mypy
+        run: uv run mypy app
+
+      # Gate 3: unit tests.
+      - name: Pytest
+        run: uv run pytest
+
+  # ------------------------------------------------------------------
+  # Frontend checks: types, tests, production build.
+  # ------------------------------------------------------------------
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install Node 22 (matches the LTS we use locally / in Docker).
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Enable pnpm (ships with Node via Corepack).
+      - name: Enable pnpm
+        run: corepack enable
+
+      # Install the exact locked dependency set.
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Gate 1: TypeScript type checking.
+      - name: Typecheck
+        run: pnpm typecheck
+
+      # Gate 2: unit tests (vitest).
+      - name: Test
+        run: pnpm test
+
+      # Gate 3: production build must succeed.
+      - name: Build
+        run: pnpm build
+
+  # ------------------------------------------------------------------
+  # Repository-wide secret scan (third layer of leak prevention).
+  # ------------------------------------------------------------------
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # gitleaks needs full history to scan past commits, not just the diff.
+          fetch-depth: 0
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v2
