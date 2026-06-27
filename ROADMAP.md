@@ -54,7 +54,7 @@ A web-based trading terminal aiming at TradingView-class functionality on an ope
 - `[x] P0-S6` — Monorepo structure: `frontend/`, `backend/`, `shared/`.
 - `[x] P0-S7` — Backend skeleton: FastAPI + uv, `/health` endpoint + test. Tools: FastAPI, uv, pytest.
 - `[x] P0-S8` — Frontend skeleton: Vite + React + TS; install `klinecharts`. Tools: pnpm, Vite.
-- `[ ] P0-S9` — Local orchestration: `docker-compose` (backend + frontend). Tools: Docker.
+- `[x] P0-S9` — Local orchestration: `docker-compose` (backend + frontend). Tools: Docker.
 - `[ ] P0-S10` — CI gates: GitHub Actions (ruff/mypy/pytest + typecheck/test/build + **gitleaks secret scan**); protect `main`. Tools: GitHub Actions, gitleaks.
 - `[ ] P0-S11` — Wire Claude Code: run `/init`, merge into `CLAUDE.md`, confirm model routing; run one trial module through the agent → CI → review → merge loop. Tools: Claude Code.
 

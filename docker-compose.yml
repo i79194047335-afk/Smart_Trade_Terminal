@@ -1,0 +1,29 @@
+# docker-compose.yml — local development orchestration.
+# `docker compose up --build` starts both services together.
+
+services:
+
+  backend:
+    # Build the image from the Dockerfile in ./backend.
+    build: ./backend
+    # Map host port 8000 -> container port 8000 (host:container).
+    ports:
+      - "8000:8000"
+    # Mount the backend source from the host into the container.
+    # This lets code changes appear immediately, without rebuilding the image.
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      # Mount source so edits are reflected live.
+      - ./frontend:/app
+      # IMPORTANT: keep the container's node_modules separate from the host.
+      # The host may have a different OS/arch — sharing node_modules would break things.
+      - /app/node_modules
+    # Start backend first (does not wait for it to be "ready", just started).
+    depends_on:
+      - backend
