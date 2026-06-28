@@ -56,7 +56,8 @@ A web-based trading terminal aiming at TradingView-class functionality on an ope
 - `[x] P0-S8` — Frontend skeleton: Vite + React + TS; install `klinecharts`. Tools: pnpm, Vite.
 - `[x] P0-S9` — Local orchestration: `docker-compose` (backend + frontend). Tools: Docker.
 - `[x] P0-S10` — CI gates: GitHub Actions (ruff/mypy/pytest + typecheck/test/build + **gitleaks secret scan**); protect `main`. Tools: GitHub Actions, gitleaks.
-- `[ ] P0-S11` — Wire Claude Code: run `/init`, merge into `CLAUDE.md`, confirm model routing; run one trial module through the agent → CI → review → merge loop. Tools: Claude Code.
+- `[x] P0-S11` — Wire Claude Code: run `/init`, merge into `CLAUDE.md`, confirm model routing; run one trial module through the agent → CI → review → merge loop. Tools: Claude Code.
+- `[ ] P0-S10a` — Add `pnpm lint` (ESLint) as a frontend gate in CI. Detected during P0-S11 `/init` review: the script exists in `package.json` but is not enforced by CI. Tools: GitHub Actions, ESLint.
 
 ### P1 — Data layer & candle engine
 **Goal:** a live, multi-source chart working end-to-end for ≥1 crypto and ≥1 forex symbol.
@@ -99,3 +100,4 @@ Record every roadmap change here (date — what changed — why). Keeps the proj
 - (update) — Added **P0-S5 secret-leak prevention** and a gitleaks scan to the CI step; renumbered former P0-S5..S10 to S6..S11. Chosen local scanner: **gitleaks** (one tool for both pre-commit and CI). Strengthened the Secrets section in `CLAUDE.md` to a layered approach.
 - (update) — Marked P0-S2..S4 done. Corrected environment to **Ubuntu 22.04** (was 24). Confirmed Docker and Claude Code already installed on the VPS.
 - (update) — Standardized the Node version to **Node 22 LTS** across docs to match the frontend `Dockerfile` (`node:22-alpine`) and CI (`node-version: 22`); earlier notes said Node 24.
+- (update) — Phase 0 closed. Marked P0-S11 done after running `/init` and the trial agent → CI → review → merge loop. Added new step **P0-S10a** to add `pnpm lint` to CI (deferred follow-up flagged by Claude Code during `/init`).
