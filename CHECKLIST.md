@@ -5,10 +5,9 @@
 ## Legend
 `[x]` done · `[~]` in progress · `[ ]` planned · ⚠️ blocked on a NEEDS-SPEC item (see `ROADMAP.md`)
 
-## Current state
 - **Phase 1 in progress.** Data contract + candle engine done.
 - **P1-S2 done** — pure `CandleEngine` ported (per-symbol; aggregate M3/M5/M15; H1/H4/D1 ready; seamless seam); 22 tests green.
-- **Next:** P1-S3 — FXCM/ForexConnect adapter behind `DataSource`. ⚠️ NEEDS-SPEC: confirm ForexConnect viability / FXCM role first.
+- **Next:** P1-S4 — Binance adapter (crypto). Then P1-S3 — FXCM via isolated ForexConnect feeder (NEEDS-SPEC resolved).
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
@@ -27,8 +26,8 @@
 ## P1 — Data layer & candle engine
 - [x] P1-S1 — DataSource interface + Tick/Candle types (provider-neutral; fake source)
 - [x] P1-S2 — Port pure candle engine (per-symbol; source split H1→ready; seamless seam; nuance tests)
-- [ ] P1-S3 — FXCM/ForexConnect adapter ⚠️ (clarify ForexConnect viability / role first)
-- [ ] P1-S4 — Binance adapter
+- [ ] P1-S3 — FXCM adapter = isolated ForexConnect feeder (Py3.7, from server.py) + 3.12 client behind DataSource (runs after P1-S4)
+- [ ] P1-S4 — Binance adapter (crypto, public REST + WebSocket) — runs first
 - [ ] P1-S5 — REST /candles + history
 - [ ] P1-S6 — WebSocket live stream
 - [ ] P1-S7 — Frontend ChartEngine wrapper + timeframe switching
