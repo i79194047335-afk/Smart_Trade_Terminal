@@ -7,7 +7,8 @@
 
 - **Phase 1 in progress.** Data contract + candle engine done.
 - **P1-S2 done** — pure `CandleEngine` ported (per-symbol; aggregate M3/M5/M15; H1/H4/D1 ready; seamless seam); 22 tests green.
-- **Next:** P1-S4 — Binance adapter (crypto). Then P1-S3 — FXCM via isolated ForexConnect feeder (NEEDS-SPEC resolved).
+- **P1-S4 done** — `BinanceDataSource` behind `DataSource` (REST klines history + `@trade` WS stream); injectable networking; 6 tests (28 total) green; live-verified on VPS (1000 M1 candles + live BTC ticks).
+- **Next:** P1-S3 — FXCM adapter via isolated ForexConnect feeder (Py3.7) + 3.12 client behind DataSource.
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
@@ -27,7 +28,7 @@
 - [x] P1-S1 — DataSource interface + Tick/Candle types (provider-neutral; fake source)
 - [x] P1-S2 — Port pure candle engine (per-symbol; source split H1→ready; seamless seam; nuance tests)
 - [ ] P1-S3 — FXCM adapter = isolated ForexConnect feeder (Py3.7, from server.py) + 3.12 client behind DataSource (runs after P1-S4)
-- [ ] P1-S4 — Binance adapter (crypto, public REST + WebSocket) — runs first
+- [x] P1-S4 — Binance adapter (crypto, public REST + WebSocket) — runs first
 - [ ] P1-S5 — REST /candles + history
 - [ ] P1-S6 — WebSocket live stream
 - [ ] P1-S7 — Frontend ChartEngine wrapper + timeframe switching
