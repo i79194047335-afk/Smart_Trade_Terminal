@@ -6,9 +6,9 @@
 `[x]` done · `[~]` in progress · `[ ]` planned · ⚠️ blocked on a NEEDS-SPEC item (see `ROADMAP.md`)
 
 ## Current state
-- **GitHub repo:** created; project docs pushed.
-- **VPS tooling:** ready — git, Python, Node 22 + pnpm, uv, Docker, Claude Code.
-- **Next action:** Phase 0 complete — handing off to a new chat for Phase 1.
+- **Phase 1 started.** Data layer contract in place.
+- **P1-S1 done** — `DataSource` interface + `Tick`/`Candle` models + in-memory fake source; ruff/mypy/pytest green.
+- **Next:** P1-S2 — port the pure candle/timeframe engine from `server.py` into `backend/app/candles/`.
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
@@ -25,7 +25,7 @@
 - [ ] P0-S10a — Add frontend ESLint gate to CI (`pnpm lint`)
 
 ## P1 — Data layer & candle engine
-- [ ] P1-S1 — DataSource interface + Tick/Candle types (provider-neutral; fake source)
+- [x] P1-S1 — DataSource interface + Tick/Candle types (provider-neutral; fake source)
 - [ ] P1-S2 — Port pure candle engine (per-symbol; source split H1→ready; seamless seam; nuance tests)
 - [ ] P1-S3 — FXCM/ForexConnect adapter ⚠️ (clarify ForexConnect viability / role first)
 - [ ] P1-S4 — Binance adapter
