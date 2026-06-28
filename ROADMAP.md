@@ -61,8 +61,8 @@ A web-based trading terminal aiming at TradingView-class functionality on an ope
 
 ### P1 — Data layer & candle engine
 **Goal:** a live, multi-source chart working end-to-end for ≥1 crypto and ≥1 forex symbol.
-- `[ ] P1-S1` — Define `DataSource` interface (history + live tick/bar contract).
-- `[ ] P1-S2` — Port candle/timeframe engine from `server.py` into pure `backend/app/candles/` (preserve nuances). Tests MUST cover: open = prev close for ≥M1, open = price for sub-minute; M1 → higher-TF aggregation; direct H4/D1 load behavior.
+- `[ ] P1-S1` — Define provider-neutral `DataSource` interface (history + live tick/bar contract) and shared `Tick`/`Candle` types; engine consumes a single `price` float (adapter derives mid/last-trade). Include an in-memory fake source for tests.
+- `[ ] P1-S2` — Port candle/timeframe engine from `server.py` into pure `backend/app/candles/` (per-symbol; no broker/network imports; preserve nuances). Source split (CHANGED): M1 ready from provider, M3/M5/M15 aggregated from M1, H1/H4/D1 loaded ready; sub-minute (S5–S30) live-only. Seamless history→live seam (seed last close per TF → first live open = that close for ≥M1). Tests MUST cover: open = prev close for ≥M1, open = price for sub-minute, first candle opens at price; M1→M3/M5/M15 aggregation; H1/H4/D1 accepted as ready bars; empty history for sub-minute; seamless seam; last in-progress bar dropped on load.
 - `[ ] P1-S3` — FXCM/ForexConnect adapter behind `DataSource`; credentials via env (pydantic-settings). ⚠️ **NEEDS-SPEC:** confirm ForexConnect long-term viability; decide FXCM as a live source vs research-only — clarify before this step.
 - `[ ] P1-S4` — Binance adapter (crypto, public REST + WebSocket).
 - `[ ] P1-S5` — REST endpoints: `/candles` (symbol, timeframe) + history loading.
@@ -101,3 +101,4 @@ Record every roadmap change here (date — what changed — why). Keeps the proj
 - (update) — Marked P0-S2..S4 done. Corrected environment to **Ubuntu 22.04** (was 24). Confirmed Docker and Claude Code already installed on the VPS.
 - (update) — Standardized the Node version to **Node 22 LTS** across docs to match the frontend `Dockerfile` (`node:22-alpine`) and CI (`node-version: 22`); earlier notes said Node 24.
 - (update) — Phase 0 closed. Marked P0-S11 done after running `/init` and the trial agent → CI → review → merge loop. Added new step **P0-S10a** to add `pnpm lint` to CI (deferred follow-up flagged by Claude Code during `/init`).
+- (update) — Phase 1 kickoff specs pinned. P1-S1: provider-neutral interface + `Tick`/`Candle` types, engine takes one price float, in-memory fake source. P1-S2: per-symbol pure engine; **source split changed vs `server.py`** — H1 now loaded ready (was aggregated from M1), aggregation = M3/M5/M15 only, direct-load = H1/H4/D1; history→live seam made seamless (seed last close per TF, no gap at load boundary); full test list added. Security: FXCM creds hardcoded in old `server.py` treated as compromised — NOT ported; secrets via env (pydantic-settings), per P1-S3.
