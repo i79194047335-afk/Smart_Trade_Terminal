@@ -8,7 +8,7 @@
 ## Current state
 - **GitHub repo:** created; project docs pushed.
 - **VPS tooling:** ready — git, Python, Node 22 + pnpm, uv, Docker, Claude Code.
-- **Next action:** **P0-S11** — wire Claude Code, run one trial module through the agent → CI → review → merge loop.
+- **Next action:** Phase 0 complete — handing off to a new chat for Phase 1.
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
@@ -21,7 +21,8 @@
 - [x] P0-S8 — Frontend skeleton (Vite + React + TS + klinecharts)
 - [x] P0-S9 — docker-compose (local dev)
 - [x] P0-S10 — CI gates + gitleaks scan + branch protection on main
-- [ ] P0-S11 — Claude Code wired + one trial module through the loop
+- [x] P0-S11 — Claude Code wired + one trial module through the loop
+- [ ] P0-S10a — Add frontend ESLint gate to CI (`pnpm lint`)
 
 ## P1 — Data layer & candle engine
 - [ ] P1-S1 — DataSource interface
