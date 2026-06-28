@@ -6,9 +6,9 @@
 `[x]` done · `[~]` in progress · `[ ]` planned · ⚠️ blocked on a NEEDS-SPEC item (see `ROADMAP.md`)
 
 ## Current state
-- **Phase 1 started.** Data layer contract in place.
-- **P1-S1 done** — `DataSource` interface + `Tick`/`Candle` models + in-memory fake source; ruff/mypy/pytest green.
-- **Next:** P1-S2 — port the pure candle/timeframe engine from `server.py` into `backend/app/candles/`.
+- **Phase 1 in progress.** Data contract + candle engine done.
+- **P1-S2 done** — pure `CandleEngine` ported (per-symbol; aggregate M3/M5/M15; H1/H4/D1 ready; seamless seam); 22 tests green.
+- **Next:** P1-S3 — FXCM/ForexConnect adapter behind `DataSource`. ⚠️ NEEDS-SPEC: confirm ForexConnect viability / FXCM role first.
 
 ## P0 — Foundation
 - [x] P0-S1 — GitHub repo created (empty, public)
@@ -26,7 +26,7 @@
 
 ## P1 — Data layer & candle engine
 - [x] P1-S1 — DataSource interface + Tick/Candle types (provider-neutral; fake source)
-- [ ] P1-S2 — Port pure candle engine (per-symbol; source split H1→ready; seamless seam; nuance tests)
+- [x] P1-S2 — Port pure candle engine (per-symbol; source split H1→ready; seamless seam; nuance tests)
 - [ ] P1-S3 — FXCM/ForexConnect adapter ⚠️ (clarify ForexConnect viability / role first)
 - [ ] P1-S4 — Binance adapter
 - [ ] P1-S5 — REST /candles + history
