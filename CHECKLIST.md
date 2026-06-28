@@ -25,8 +25,8 @@
 - [ ] P0-S10a — Add frontend ESLint gate to CI (`pnpm lint`)
 
 ## P1 — Data layer & candle engine
-- [ ] P1-S1 — DataSource interface
-- [ ] P1-S2 — Port candle/timeframe engine (+ tests for the nuances)
+- [ ] P1-S1 — DataSource interface + Tick/Candle types (provider-neutral; fake source)
+- [ ] P1-S2 — Port pure candle engine (per-symbol; source split H1→ready; seamless seam; nuance tests)
 - [ ] P1-S3 — FXCM/ForexConnect adapter ⚠️ (clarify ForexConnect viability / role first)
 - [ ] P1-S4 — Binance adapter
 - [ ] P1-S5 — REST /candles + history
