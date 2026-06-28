@@ -30,19 +30,21 @@ All documentation, code comments, identifiers, commit messages, and instruction 
 ## Commands
 Backend (from `./backend`):
 - `uv sync` — install dependencies
-- `uv run uvicorn app.main:app --reload` — run the API
+- `uv run uvicorn app.main:app --reload` — run the API (serves on `http://localhost:8000`)
 - `uv run pytest` — tests
+- `uv run pytest tests/test_health.py::test_health` — run one test (path::name, or `-k <expr>` to filter)
 - `uv run ruff check .` — linter
 - `uv run mypy app` — type checking
 
 Frontend (from `./frontend`):
 - `pnpm install`
-- `pnpm dev` — dev server
+- `pnpm dev` — dev server (serves on `http://localhost:5173`)
 - `pnpm test` — tests (vitest)
+- `pnpm test src/__tests__/smoke.test.ts` — run one test file (or `pnpm vitest run -t "<name>"` for one case)
 - `pnpm typecheck` — type checking
 - `pnpm build` — production build
 
-Everything at once: `docker compose up --build`
+Everything at once: `docker compose up --build` (backend on `:8000`, frontend on `:5173`).
 
 ## Architecture rules (strict)
 1. **Chart layer is abstracted.** The UI never calls KLineChart directly — only through a `ChartEngine` wrapper. The engine must be replaceable.

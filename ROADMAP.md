@@ -49,7 +49,7 @@ A web-based trading terminal aiming at TradingView-class functionality on an ope
 - `[x] P0-S1` — GitHub repository created (public, empty). Tools: GitHub. **Done.**
 - `[x] P0-S2` — Project documentation established: `CLAUDE.md`, `ROADMAP.md`, `CHECKLIST.md`. **Done.**
 - `[x] P0-S3` — Local repo init → connect remote → first commit & push (docs + `.gitignore` incl. `.env` + `.env.example` + `README.md`). Tools: git. **Done.**
-- `[x] P0-S4` — Base tooling on VPS. **Done** (uv installed; git, Node 24 LTS + pnpm, Docker, Claude Code already present).
+- `[x] P0-S4` — Base tooling on VPS. **Done** (uv installed; git, Node 22 LTS + pnpm, Docker, Claude Code already present).
 - `[x] P0-S5` — **Secret-leak prevention:** enable GitHub push protection (Settings → Advanced Security → Secret Protection); install gitleaks as a pre-commit hook (via the pre-commit framework); confirm `.env` is ignored and `.env.example` is present. Tools: gitleaks, pre-commit, GitHub Secret Protection.
 - `[x] P0-S6` — Monorepo structure: `frontend/`, `backend/`, `shared/`.
 - `[x] P0-S7` — Backend skeleton: FastAPI + uv, `/health` endpoint + test. Tools: FastAPI, uv, pytest.
@@ -97,4 +97,5 @@ Not tied to one phase, but decide before the phase that needs them:
 Record every roadmap change here (date — what changed — why). Keeps the project's evolution traceable.
 - (init) — Roadmap created at P0 (only the empty GitHub repo existed).
 - (update) — Added **P0-S5 secret-leak prevention** and a gitleaks scan to the CI step; renumbered former P0-S5..S10 to S6..S11. Chosen local scanner: **gitleaks** (one tool for both pre-commit and CI). Strengthened the Secrets section in `CLAUDE.md` to a layered approach.
-- (update) — Marked P0-S2..S4 done. Corrected environment to **Ubuntu 22.04** (was 24). Confirmed Node 24 LTS, Docker and Claude Code already installed on the VPS.
+- (update) — Marked P0-S2..S4 done. Corrected environment to **Ubuntu 22.04** (was 24). Confirmed Docker and Claude Code already installed on the VPS.
+- (update) — Standardized the Node version to **Node 22 LTS** across docs to match the frontend `Dockerfile` (`node:22-alpine`) and CI (`node-version: 22`); earlier notes said Node 24.
