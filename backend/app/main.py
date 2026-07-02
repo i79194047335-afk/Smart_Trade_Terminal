@@ -8,9 +8,13 @@ Defines the HTTP API the frontend talks to. For now it only exposes a
 
 from fastapi import FastAPI
 
+from app.api.candles import router as candles_router
+
 # `app` is the application object. FastAPI looks at the decorators below
 # to know which URL maps to which Python function.
 app = FastAPI(title="Smart Trade Terminal API")
+# Mount the candles REST endpoints (history of closed candles).
+app.include_router(candles_router)
 
 
 @app.get("/health")
